@@ -5,7 +5,8 @@
   "type": "module",
   "author": "Mike Barnes <michael@journeyapps.com>",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "keys": "node ./scripts/generateKeyPair.js"
   },
   "dependencies": {
     "body-parser": "^1.20.2",

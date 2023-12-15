@@ -32,11 +32,19 @@ The repo also has an integration with [Firebase](https://firebase.google.com/doc
 - [jose](https://github.com/panva/jose) is used to sign the JWT which PowerSync uses for authorization.
 - [firebase-admin](https://github.com/firebase/firebase-admin-node) is used to connect to Firebase and the `verifyIdToken` function is used to validate the client application request before the app generates a JWT used by PowerSync to sync data.
 
-## Running the app
+## Running the app locally
 
 1. Clone the repository
 
-2. Follow the steps outlined in [PowerSync Custom Authentication Example](https://github.com/journeyapps/powersync-jwks-example) → [Generate a key-pair](https://github.com/journeyapps/powersync-jwks-example#1-generate-a-key-pair) to get the key pair you need for this app. This is an easy way to get started with this demo app. You can use your own public/private keys as well.
+2. Generate a new public/private key pair by running the following command:
+```shell
+yarn keys
+```
+This will output two new keys in the terminal window, make sure to copy and past this into the env file below. These also need to be set on the Railway apps environment variables as:
+```shell
+POWERSYNC_JWT_PUBLICKEY
+POWERSYNC_JWT_PRIVATEKEY
+```
 
 3. Create a new `.env` file in the root project directory and add the variables as defined in the `.env` file:
 ```shell

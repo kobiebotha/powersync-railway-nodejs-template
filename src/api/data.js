@@ -70,12 +70,13 @@ router.delete("/", async (req, res) => {
     await client.release();
 
     res.status(200).send({
-        message: `PUT completed for ${table} ${data.id}`
+        message: `DELETE completed for ${table} ${data.id}`
     })
 });
 
 /**
- * Upsert a row in a table based on the data sent from the PowerSync client
+ * Upsert a row in a table based on the data sent from the PowerSync client. This works out of the box with the PowerSync Todolist Demo apps
+ * Make sure to update the function to write to your specific tables in the Postgres database.
  * @param body
  * @param res
  * @returns {Promise<void>}
