@@ -31,6 +31,9 @@ app.use((req, res, next) => {
 
 app.use('/api', apiRouter);
 
+/**
+ * Catch default route
+ */
 app.get('/', (req, res) => {
     res.status(200).send({
         message: "powersync-railway-nodejs-backend-todolist-demo"
