@@ -50,7 +50,7 @@ POWERSYNC_JWT_PRIVATEKEY
 ```shell
 cp .env.template .env
 ```
-4Install dependencies:
+4. Install dependencies:
 ```shell
 nvm use
 ```
