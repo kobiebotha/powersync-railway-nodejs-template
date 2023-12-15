@@ -33,7 +33,7 @@ app.use('/api', apiRouter);
 
 app.get('/', (req, res) => {
     res.status(200).send({
-        message: "powersync-nodejs-backend-todolist-demo"
+        message: "powersync-railway-nodejs-backend-todolist-demo"
     });
 });
 
