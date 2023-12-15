@@ -11,8 +11,8 @@ const config = {
     },
     powersync: {
         url: process.env.POWERSYNC_URL,
-        publicKey: process.env.POWERSYNC_PUBLIC_KEY,
-        privateKey: process.env.POWERSYNC_PRIVATE_KEY,
+        publicKey: process.env.POWERSYNC_JWT_PUBLICKEY,
+        privateKey: process.env.POWERSYNC_JWT_PRIVATEKEY,
         jwtIssuer: process.env.JWT_ISSUER
     },
     firebase: {
