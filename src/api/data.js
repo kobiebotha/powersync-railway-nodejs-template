@@ -11,7 +11,7 @@ const pool = new Pool({
     database: config.database.name,
     user: config.database.user,
     password: config.database.password,
-    port: config.database.port,
+    port: config.database.port
 });
 
 /**
@@ -83,10 +83,11 @@ router.delete("/", async (req, res) => {
  */
 const upsert = async (body, res) => {
     try {
+        // This is the table where the updates should be sent to
         const table = body.table;
-        const row = body.data;
 
-        console.log(row);
+        // This is the data for the row
+        const row = body.data;
 
         let text = null;
         let values = [];

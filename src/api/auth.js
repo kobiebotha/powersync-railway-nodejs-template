@@ -12,6 +12,7 @@ const router = express.Router();
  * Get the JWT token that PowerSync will use to authenticate.
  * The header of the request should contain a token that is set by the client application.
  * You should validate the token before generating a new JWT for PowerSync.
+ * https://docs.powersync.com/usage/installation/authentication-setup/custom
  */
 router.get("/token", async (req, res) => {
     try {
@@ -80,7 +81,8 @@ router.get("/token", async (req, res) => {
 });
 
 /**
- * This is the JWKS endpoint PowerSync uses to handle authentication
+ * This is the JWKS endpoint PowerSync uses to handle authentication.
+ * https://docs.powersync.com/usage/installation/authentication-setup/custom
  */
 router.get("/keys", (req, res) => {
     try {
