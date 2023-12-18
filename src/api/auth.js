@@ -1,7 +1,5 @@
 import express from "express";
 import {SignJWT, importJWK} from "jose";
-import {initializeApp, cert} from "firebase-admin/app";
-import { getAuth } from "firebase-admin/auth";
 import config from "../../config.js";
 
 /**
@@ -11,24 +9,9 @@ import config from "../../config.js";
 const router = express.Router();
 
 /**
- * Initialize the Firebase app
- */
-const firebaseApp = initializeApp({
-    credential: cert({
-        projectId: config.firebase.projectId,
-        privateKey: config.firebase.privateKey,
-        clientEmail: config.firebase.clientEmail
-    })
-});
-
-/**
- * Get the Auth context fot the initialized app
- * @type {Auth}
- */
-const appAuth = getAuth(firebaseApp);
-
-/**
- * Get the JWT token that PowerSync will use to authenticate the user
+ * Get the JWT token that PowerSync will use to authenticate.
+ * The header of the request should contain a token that is set by the client application.
+ * You should validate the token before generating a new JWT for PowerSync.
  */
 router.get("/token", async (req, res) => {
     try {
@@ -36,14 +19,25 @@ router.get("/token", async (req, res) => {
             res.status(401).send();
             return;
         }
-        // Here, we assume the Authorization header format is: Bearer YOUR_TOKEN
+
+        // Here, we assume the Authorization header format is: Bearer <token>
         const userToken = req.headers.authorization.split(' ')[1];
         if(!userToken) {
-            res.status(401).send();
-            return;
+            // Uncomment the code below for production apps as you'll want to reject
+            // requests that do not have a token.
+            // res.status(401).send();
+            // return;
         }
-        // Verify the token with Firebase
-        const decodedToken = await appAuth.verifyIdToken(userToken);
+
+        /**
+         * This value is hardcoded to get you started. In production you'll need to implement something here
+         * to validate and decode the token. The user uuid or other user identifier us used as the subject of the JWT.
+         * @type {{uuid: number}}
+         */
+        const decodedToken = {
+            uuid: 12345
+        };
+
 
         if(decodedToken) {
             // If token is valid, decodedToken has all the user info
@@ -74,7 +68,7 @@ router.get("/token", async (req, res) => {
             res.send(responseBody);
         } else {
             res.status(401).send({
-                message: "Unable to verify Firebase idToken"
+                message: "Unable to verify idToken"
             });
         }
     } catch (err) {
