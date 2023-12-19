@@ -3,7 +3,7 @@
 ## Overview
 This repo contains a starter Node.js server application which has HTTP endpoints to authorize a [PowerSync](https://www.powersync.com/) enabled application to sync data between a SQLite client and a Postgres database. This repo is intended for use as a starter template on [Railway](https://railway.app/).
 
-[Deploy on Railway]
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/RfZi6y?referralCode=2vw_V9)
 
 For an overview of PowerSync, see [here](https://docs.powersync.com/overview/powersync-overview).
 
@@ -72,7 +72,3 @@ This will start the app on `http://127.0.0.1:PORT`, where PORT is what you speci
 3. Test if the app is working by opening `http://127.0.0.1:PORT/api/auth/keys/` in the browser
 
 4. You should get a JSON object as the response to that request
-
-----
-
-![powersync-open-graph-shareable-meta-img](https://github.com/powersync-ja/powersync-railway-nodejs-template/assets/277659/636036a2-f67b-427a-9c8c-3d86893c2c28)
