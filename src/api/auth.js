@@ -33,6 +33,7 @@ router.get("/token", async (req, res) => {
         /**
          * This value is hardcoded to get you started. In production you'll need to implement something here
          * to validate and decode the token. The user uuid or other user identifier us used as the subject of the JWT.
+         * For an example implementation using Firebase, see https://github.com/powersync-ja/powersync-nodejs-firebase-backend-todolist-demo
          * @type {{uuid: number}}
          */
         const decodedToken = {

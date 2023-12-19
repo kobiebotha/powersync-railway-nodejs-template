@@ -22,7 +22,7 @@ pool.on('error', (err, client) => {
 })
 
 /**
- * Handle all PUT events sent to the server by the client PowerSunc application
+ * Handle all PUT events sent to the server by the client PowerSync application
  */
 router.put("/", async (req, res) => {
     if(!req.body) {
@@ -35,7 +35,7 @@ router.put("/", async (req, res) => {
 });
 
 /**
- * Handle all PATCH events sent to the server by the client PowerSunc application
+ * Handle all PATCH events sent to the server by the client PowerSync application
  */
 router.patch("/", async (req, res) => {
     if(!req.body) {
@@ -48,7 +48,7 @@ router.patch("/", async (req, res) => {
 });
 
 /**
- * Handle all DELETE events sent to the server by the client PowerSunc application
+ * Handle all DELETE events sent to the server by the client PowerSync application
  */
 router.delete("/", async (req, res) => {
     if(!req.body) {
